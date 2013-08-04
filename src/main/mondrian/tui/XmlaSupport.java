@@ -852,7 +852,19 @@ public class XmlaSupport {
         servletConfig.addInitParameter(
             XmlaServlet.PARAM_DATASOURCES_CONFIG,
             "inline:" + dataSourceText);
-        servlet = new MondrianXmlaServlet();
+        servletConfig.addInitParameter("OlapDriverClassName","mondrian.olap4j.MondrianOlap4jDriver");
+        servletConfig.addInitParameter("OlapDriverConnectionString",
+                "jdbc:mondrian:Jdbc=jdbc:derby:./demo/derby/foodmart;Catalog=./demo/FoodMart.xml;JdbcDrivers=org.apache.derby.jdbc.EmbeddedDriver;JdbcUser=sa;JdbcPassword=sa;PoolNeeded=false;");
+        /*
+         * <param-name>OlapDriverClassName</param-name> 
+            <param-value>mondrian.olap4j.MondrianOlap4jDriver</param-value>
+        </init-param>
+        <init-param>
+            <param-name>OlapDriverConnectionString</param-name>
+            <param-value>jdbc:mondrian:Jdbc='jdbc:derby:classpath:/foodmart';Catalog=/WEB-INF/classes/FoodMart.xml;JdbcDrivers=org.apache.derby.jdbc.EmbeddedDriver;JdbcUser=sa;JdbcPassword=sa;PoolNeeded=false</param-value>
+        </init-param>
+         * */
+        servlet = new Olap4jXmlaServlet();
         servlet.init(servletConfig);
         if (cache != null) {
             cache.put(key, servlet);

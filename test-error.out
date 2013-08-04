@@ -1,0 +1,144 @@
+     [echo] Connecting to jdbc:odbc:MondrianFoodMart
+     [echo] Connect String: Provider=mondrian;Jdbc='jdbc:odbc:MondrianFoodMart';Catalog='file:/Users/mkhl/git/mondrian/demo/FoodMart.xml'
+     [java] Listening for transport dt_socket at address: 8000
+     [java] log4j:WARN No appenders could be found for logger (mondrian.olap.MondrianProperties).
+     [java] log4j:WARN Please initialize the log4j system properly.
+     [java] log4j:WARN See http://logging.apache.org/log4j/1.2/faq.html#noconfig for more info.
+     [java] testName: testDatabaseMetaDataGetDatasources
+     [java] testClass: org.olap4j.MetadataTest
+     [java] java.version: 1.6.0_51
+     [java] [0 - 1] : org.olap4j.MetadataTest
+     [java] 
+     [java] Iterations=1
+     [java] All 1 thread(s) started.
+     [java] 
+     [java] [0] .E
+     [java] There was 1 error:
+     [java] 1) testDatabaseMetaDataGetDatasources(org.olap4j.MetadataTest)java.lang.RuntimeException: org.olap4j.OlapException: XMLA provider gave exception: <SOAP-ENV:Fault>
+     [java] 	
+     [java] 	<faultcode>
+     [java] 		SOAP-ENV:Server.00HSBE02
+     [java] 	</faultcode>
+     [java] 	
+     [java] 	<faultstring>
+     [java] 		XMLA Discover unparse results error
+     [java] 	</faultstring>
+     [java] 	
+     [java] 	<faultactor>
+     [java] 		Mondrian
+     [java] 	</faultactor>
+     [java] 	
+     [java] 	<detail>
+     [java] 		
+     [java] 		<XA:error xmlns:XA="http://mondrian.sourceforge.net">
+     [java] 			
+     [java] 			<code>
+     [java] 				00HSBE02
+     [java] 			</code>
+     [java] 			
+     [java] 			<desc>
+     [java] 				The Mondrian XML: com.sun.proxy.$Proxy7 cannot be cast to mondrian.olap4j.MondrianOlap4jConnection
+     [java] 			</desc>
+     [java] 			
+     [java] 		</XA:error>
+     [java] 		
+     [java] 	</detail>
+     [java] 	
+     [java] </SOAP-ENV:Fault>
+     [java] 
+     [java] Request was:
+     [java] <?xml version="1.0" encoding="UTF-8"?>
+     [java] <SOAP-ENV:Envelope
+     [java]     xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
+     [java]     SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+     [java]   <SOAP-ENV:Body>
+     [java]     <Discover xmlns="urn:schemas-microsoft-com:xml-analysis"
+     [java]         SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+     [java]     <RequestType>DISCOVER_DATASOURCES</RequestType>
+     [java]     <Restrictions>
+     [java]       <RestrictionList>
+     [java]       </RestrictionList>
+     [java]     </Restrictions>
+     [java]     <Properties>
+     [java]       <PropertyList>
+     [java]         <Content>Data</Content>
+     [java]       </PropertyList>
+     [java]     </Properties>
+     [java]   </Discover>
+     [java] </SOAP-ENV:Body>
+     [java] </SOAP-ENV:Envelope>
+     [java] 	at org.olap4j.driver.xmla.DeferredNamedListImpl.getList(DeferredNamedListImpl.java:96)
+     [java] 	at org.olap4j.driver.xmla.DeferredNamedListImpl.size(DeferredNamedListImpl.java:116)
+     [java] 	at org.olap4j.driver.xmla.XmlaOlap4jConnection.getOlapDatabase(XmlaOlap4jConnection.java:451)
+     [java] 	at org.olap4j.driver.xmla.XmlaOlap4jConnection.getOlapCatalog(XmlaOlap4jConnection.java:501)
+     [java] 	at org.olap4j.driver.xmla.XmlaOlap4jConnection.getCatalog(XmlaOlap4jConnection.java:496)
+     [java] 	at org.olap4j.MetadataTest.setUp(MetadataTest.java:116)
+     [java] 	at mondrian.test.MondrianTestRunner$2.run(MondrianTestRunner.java:140)
+     [java] 	at java.lang.Thread.run(Thread.java:680)
+     [java] Caused by: org.olap4j.OlapException: XMLA provider gave exception: <SOAP-ENV:Fault>
+     [java] 	
+     [java] 	<faultcode>
+     [java] 		SOAP-ENV:Server.00HSBE02
+     [java] 	</faultcode>
+     [java] 	
+     [java] 	<faultstring>
+     [java] 		XMLA Discover unparse results error
+     [java] 	</faultstring>
+     [java] 	
+     [java] 	<faultactor>
+     [java] 		Mondrian
+     [java] 	</faultactor>
+     [java] 	
+     [java] 	<detail>
+     [java] 		
+     [java] 		<XA:error xmlns:XA="http://mondrian.sourceforge.net">
+     [java] 			
+     [java] 			<code>
+     [java] 				00HSBE02
+     [java] 			</code>
+     [java] 			
+     [java] 			<desc>
+     [java] 				The Mondrian XML: com.sun.proxy.$Proxy7 cannot be cast to mondrian.olap4j.MondrianOlap4jConnection
+     [java] 			</desc>
+     [java] 			
+     [java] 		</XA:error>
+     [java] 		
+     [java] 	</detail>
+     [java] 	
+     [java] </SOAP-ENV:Fault>
+     [java] 
+     [java] Request was:
+     [java] <?xml version="1.0" encoding="UTF-8"?>
+     [java] <SOAP-ENV:Envelope
+     [java]     xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
+     [java]     SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+     [java]   <SOAP-ENV:Body>
+     [java]     <Discover xmlns="urn:schemas-microsoft-com:xml-analysis"
+     [java]         SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+     [java]     <RequestType>DISCOVER_DATASOURCES</RequestType>
+     [java]     <Restrictions>
+     [java]       <RestrictionList>
+     [java]       </RestrictionList>
+     [java]     </Restrictions>
+     [java]     <Properties>
+     [java]       <PropertyList>
+     [java]         <Content>Data</Content>
+     [java]       </PropertyList>
+     [java]     </Properties>
+     [java]   </Discover>
+     [java] </SOAP-ENV:Body>
+     [java] </SOAP-ENV:Envelope>
+     [java] 	at org.olap4j.driver.xmla.XmlaHelper.createException(XmlaHelper.java:35)
+     [java] 	at org.olap4j.driver.xmla.XmlaOlap4jConnection.executeMetadataRequest(XmlaOlap4jConnection.java:933)
+     [java] 	at org.olap4j.driver.xmla.XmlaOlap4jConnection.populateList(XmlaOlap4jConnection.java:851)
+     [java] 	at org.olap4j.driver.xmla.DeferredNamedListImpl.populateList(DeferredNamedListImpl.java:136)
+     [java] 	at org.olap4j.driver.xmla.DeferredNamedListImpl.getList(DeferredNamedListImpl.java:90)
+     [java] 	... 16 more
+     [java] 
+     [java] FAILURES!!!
+     [java] Tests run: 1,  Failures: 0,  Errors: 1
+     [java] 
+     [java] Time: 10.077
+     [java] Test stopped due to errors.
+     [java] Java Result: 1
+
