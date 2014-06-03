@@ -53,7 +53,14 @@ class MondrianOlap4jExtra implements XmlaHandler.XmlaExtra {
     }
 
     public void setPreferList(OlapConnection connection) {
-        ((MondrianOlap4jConnection) connection).setPreferList(true);
+        MondrianOlap4jConnection mondrianOlap4jConnection;
+        try {
+            mondrianOlap4jConnection = connection.unwrap(MondrianOlap4jConnection.class);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        
+        mondrianOlap4jConnection.setPreferList(true);
     }
 
     public Date getSchemaLoadDate(Schema schema) {
@@ -275,8 +282,12 @@ class MondrianOlap4jExtra implements XmlaHandler.XmlaExtra {
     public List<Map<String, Object>> getDataSources(OlapConnection connection)
         throws OlapException
     {
-        MondrianOlap4jConnection olap4jConnection =
-            (MondrianOlap4jConnection) connection;
+        MondrianOlap4jConnection olap4jConnection;
+        try {
+            olap4jConnection = (MondrianOlap4jConnection) connection.unwrap(MondrianOlap4jConnection.class);
+        } catch (SQLException e) {
+            throw new OlapException(e);
+        }
         MondrianServer server =
             MondrianServer.forConnection(
                 olap4jConnection.getMondrianConnection());
